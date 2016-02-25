@@ -118,7 +118,6 @@ setup_loop_device()
   else
     echo "I: $ME: partition $2 of $IMG will become $devnode..." >&2
   fi
-  echo /sbin/losetup "$devnode" "$1" -o "${3##*:}"
   /sbin/losetup "$devnode" "$1" -o "${3##*:}"
 
   [ -z "${link:-}" ] && return 0
