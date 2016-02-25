@@ -49,7 +49,6 @@ usage()
 }
 
 for i in $@; do
-  echo "ARG $i"
   case "$i" in
     -V|--version) about; exit 0;;
     -h|--help) usage; exit 0;;
@@ -129,8 +128,6 @@ setup_loop_device()
     ln -s $devnode $link
   fi
 }
-
-echo "TYPES/ $TYPES"
 
 for i in $PARTS; do
   type="${i%%:*}"
