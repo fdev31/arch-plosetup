@@ -100,7 +100,7 @@ esac
 
 PARTS="$(/sbin/fdisk -lu $IMG 2>/dev/null)"
 
-UNITS="$(echo "$PARTS" | sed -rne 's,^Units = .*= ([[:digit:]]+) bytes$,\1,p')"
+UNITS="$(echo "$PARTS" | sed -rne 's,^Units: .*= ([[:digit:]]+) bytes$,\1,p')"
 MATCHER="^${IMG}p?([[:digit:]]+)[*[:space:]]*([[:digit:]]+).*[[:space:]]+([[:digit:]]+)[[:space:]].*"
 PARTS="$(echo "$PARTS" | sed -rne "s,$MATCHER,\3:\1@\2,p")"
 
